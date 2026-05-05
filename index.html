@@ -1,350 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume</title>
-    <style>
-      body {
-        margin: 0;
-        background: #f2f2f2;
-        font-family: Arial, Helvetica, sans-serif;
-      }
 
-      .resume {
-        width: min(900px, 96%);
-        margin: 8px auto;
-        background: #fff;
-        padding: 14px 24px 18px;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f2f2f2;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-      .header {
-        display: flex;
-        justify-content: space-between;
+    .resume {
+      width: min(900px, 96%);
+      margin: 8px auto;
+      background: #fff;
+      padding: 14px 24px 18px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .name {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .contact a {
+      color: inherit;
+    }
+
+    .section-title {
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      margin: 8px 0 4px;
+      border-top: 4px solid #222;
+    }
+
+    .entry {
+      margin-top: 4px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .left-strong {
+      font-weight: 700;
+    }
+
+    .right-meta {
+      white-space: nowrap;
+    }
+
+    .compact-line {
+      margin: 0;
+      line-height: 1.25;
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 4px 0 0 28px;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    li {
+      margin: 2px 0;
+    }
+
+    @media (max-width: 720px) {
+
+      .header,
+      .row {
+        flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-      }
-
-      .name {
-        font-size: 25px;
-        font-weight: 700;
-        letter-spacing: 0.2px;
+        gap: 2px;
       }
 
       .contact {
-        text-align: right;
-        font-size: 16px;
-        line-height: 1.35;
-      }
-
-      .contact a {
-        color: inherit;
-      }
-
-      .section-title {
-        text-align: center;
-        font-weight: 700;
-        font-size: 20px;
-        margin: 8px 0 4px;
-        border-top: 4px solid #222;
-      }
-
-      .entry {
-        margin-top: 4px;
-      }
-
-      .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 12px;
-      }
-
-      .left-strong {
-        font-weight: 700;
+        text-align: left;
       }
 
       .right-meta {
-        white-space: nowrap;
+        white-space: normal;
       }
+    }
+  </style>
+</head>
 
-      .compact-line {
-        margin: 0;
-        line-height: 1.25;
-        font-size: 16px;
-      }
-
-      ul {
-        margin: 4px 0 0 28px;
-        padding: 0;
-        font-size: 16px;
-        line-height: 1.25;
-      }
-
-      li {
-        margin: 2px 0;
-      }
-
-      @media (max-width: 720px) {
-        .header,
-        .row {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 2px;
-        }
-
-        .contact {
-          text-align: left;
-        }
-
-        .right-meta {
-          white-space: normal;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="resume">
-      <div class="header">
-        <div class="name">JANVI CHAUHAN</div>
-        <div class="contact">
-          Email:
-          <a href="mailto:janvichauhan1608@gmail.com"
-            >janvichauhan1608@gmail.com</a
-          ><br />
-          LinkedIn:
-          <a
-            href="https://www.linkedin.com/in/janvi-chauhan-9297a92a1/"
-            target="_blank"
-            >https://www.linkedin.com/in/janvi-chauhan-9297a92a1/</a
-          ><br />
-          <a href="https://github.com/janvi-c16" target="_blank">GitHub</a> | Mobile: +91 9068255261
-        </div>
+<body>
+  <div class="resume">
+    <div class="header">
+      <div class="name">JANVI CHAUHAN</div>
+      <div class="contact">
+        Email:
+        <a href="mailto:janvichauhan1608@gmail.com">janvichauhan1608@gmail.com</a><br />
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/janvi-chauhan-9297a92a1/"
+          target="_blank">https://www.linkedin.com/in/janvi-chauhan-9297a92a1/</a><br />
+        <a href="https://github.com/janvi-c16" target="_blank">GitHub</a> | Mobile: +91 9068255261
       </div>
+    </div>
 
-      <div class="section-title">EDUCATION</div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">
-            Bachelor of Technology (Computer Science Engineering)
-          </div>
-          <div class="right-meta">Amity University, Noida</div>
-        </div>
-        <div class="row compact-line">
-          <p class="compact-line">Current CGPA: 8.48</p>
-          <p class="compact-line">2022-2026</p>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">Senior Secondary (CBSE)</div>
-          <div class="right-meta">Dewan Public School, Meerut</div>
-        </div>
-        <div class="row compact-line">
-          <p class="compact-line">Percentage: 90.25%</p>
-          <p class="compact-line">2020-2021</p>
-        </div>
-      </div>
-
-      <div class="section-title">SKILLS SUMMARY</div>
-      <ul>
-        <li><span class="left-strong">Languages:</span> C++, C, Python</li>
-        <li>
-          <span class="left-strong">AI/ML:</span> NLP, LLMs, RAG, Transformers,
-          Deep Learning
-        </li>
-        <li>
-          <span class="left-strong">Tools &amp; Frameworks:</span> PyTorch,
-          TensorFlow, Scikit-learn
-        </li>
-        <li>
-          <span class="left-strong">Code &amp; Dev:</span> Git, GitHub, Code
-          Review, Debugging, Optimization
-        </li>
-        <li><span class="left-strong">Databases:</span> MySQL, MongoDB</li>
-        <li>
-          <span class="left-strong">Platform:</span> Jupyter, Kaggle, PyCharm,
-          Visual Studio Code, Excel
-        </li>
-        <li>
-          <span class="left-strong">Soft Skills:</span> Strong Communication,
-          Problem-Solving, Teamwork, Leadership, Networking, Time Management,
-          Work Ethic, and Adaptive Learning Skills
-        </li>
-      </ul>
-
-      <div class="section-title">WORK EXPERIENCE</div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">
-            AI/ML Intern | Horizon17 Technology and Sustainability PVT LTD
-          </div>
-          <div class="right-meta">May 2025 - July 2025</div>
-        </div>
-        <ul>
-          <li>
-            Developed NLP pipelines for processing unstructured compliance
-            documents using AI/ML techniques
-          </li>
-          <li>
-            Evaluated and validated AI-generated outputs to ensure accuracy and
-            adherence to standards
-          </li>
-          <li>
-            Optimized data processing workflows, improving efficiency of
-            semantic analysis and reporting
-          </li>
-          <li>
-            Collaborated with cross-functional teams to design scalable
-            AI-driven compliance systems
-          </li>
-        </ul>
-      </div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">Developer Intern | Salesforce</div>
-          <div class="right-meta">May 2024 - June 2024</div>
-        </div>
-        <ul>
-          <li>
-            Gained hands-on experience in Salesforce fundamentals, Apex, LWC,
-            APIs, and automation.
-          </li>
-          <li>
-            Earned Super Badges: Apex Specialist, Process Automation
-            Specialist, Developer Super Set.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-title">PROJECTS</div>
-      <div class="entry">
-        <p class="compact-line left-strong">Stocket - Stock Prediction Web App</p>
-        <ul>
-          <li>
-            Developed ML-based stock prediction models (GRU, LSTM, Random
-            Forest) achieving 82% accuracy
-          </li>
-          <li>
-            Built real-time data pipelines and optimized system latency by 30%
-          </li>
-          <li>
-            Designed modular architecture for scalable data processing and
-            visualization
-          </li>
-        </ul>
-      </div>
-      <div class="entry">
-        <p class="compact-line left-strong">LegalSnap - AI-Powered Legal Assistant</p>
-        <ul>
-          <li>
-            Built an Agentic RAG-based legal assistant integrating LLMs for
-            context-aware retrieval
-          </li>
-          <li>
-            Implemented semantic search using embeddings and optimized response
-            accuracy via re-ranking
-          </li>
-          <li>
-            Designed modular backend pipelines for scalable query processing and
-            knowledge retrieval
-          </li>
-          <li>
-            Evaluated and improved LLM outputs for correctness, latency, and
-            relevance
-          </li>
-        </ul>
-      </div>
-      <div class="entry">
-        <p class="compact-line left-strong">RAG based holistic cardiac support system</p>
-        <ul>
-          <li>
-            Design and implement hybrid RAG framework to answer and learn from
-            conventional user queries related to cardiac diagnosis, diet
-            recommendation and exercise regime.
-          </li>
-          <li>
-            Integrated persistent memory multilingual support with
-            metadata-tagged knowledge base.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-title">RESEARCH AND PUBLICATIONS</div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">
-            Quantum-Deliberation Framework for Modeling Opinion Dynamics
-          </div>
-          <div class="right-meta">2025</div>
-        </div>
-        <ul>
-          <li>
-            Developed a Quantum-Deliberation Framework with a Transformer-based
-            model, achieving 0.878 accuracy in predicting dynamic opinion
-            shifts.
-          </li>
-          <li>
-            Validated the framework on a self-sourced + LLM-augmented dataset
-            of 100+ participants across domains like policy, debates, and
-            social media.
-          </li>
-        </ul>
-      </div>
-      <div class="entry">
-        <div class="row">
-          <div class="left-strong">
-            Book chapter | Leveraging Generative Models for Strategic
-            Forecasting
-          </div>
-          <div class="right-meta">2025</div>
-        </div>
-        <ul>
-          <li>
-            Authored a Scopus-indexed book chapter on Real-Time Management with
-            Predictive Analytics.
-          </li>
-          <li>
-            Explored generative AI, digital twins, and deepfake detection with
-            applications in forecasting, fraud detection, and supply chain
-            management.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section-title">CERTIFICATIONS</div>
+    <div class="section-title">EDUCATION</div>
+    <div class="entry">
       <div class="row">
-        <p class="compact-line left-strong">
-          Machine Learning Specialization by Stanford | DeepLearning.AI |
-          <a href="https://www.coursera.org/account/accomplishments/specialization/KQM1H2JVTD35?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=s12n" target="_blank">Link</a>
-        </p>
-        <p class="compact-line right-meta">March 2025 - June 2025</p>
+        <div class="left-strong">
+          Bachelor of Technology (Computer Science Engineering)
+        </div>
+        <div class="right-meta">Amity University, Noida</div>
       </div>
+      <div class="row compact-line">
+        <p class="compact-line">Current CGPA: 8.48</p>
+        <p class="compact-line">2022-2026</p>
+      </div>
+    </div>
+    <div class="entry">
       <div class="row">
-        <p class="compact-line left-strong">
-          Google Project Management | <a href="https://www.coursera.org/account/accomplishments/professional-cert/6VM4SHXB6T5M?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" target="_blank">Link</a>
-        </p>
-        <p class="compact-line right-meta">May 2024 - June 2024</p>
+        <div class="left-strong">Senior Secondary (CBSE)</div>
+        <div class="right-meta">Dewan Public School, Meerut</div>
       </div>
+      <div class="row compact-line">
+        <p class="compact-line">Percentage: 90.25%</p>
+        <p class="compact-line">2020-2021</p>
+      </div>
+    </div>
 
-      <div class="section-title">POSITIONS OF RESPONSIBILITY</div>
+    <div class="section-title">SKILLS SUMMARY</div>
+    <ul>
+      <li><span class="left-strong">Languages:</span> C++, C, Python</li>
+      <li>
+        <span class="left-strong">AI/ML:</span> NLP, LLMs, RAG, Transformers,
+        Deep Learning
+      </li>
+      <li>
+        <span class="left-strong">Tools &amp; Frameworks:</span> PyTorch,
+        TensorFlow, Scikit-learn
+      </li>
+      <li>
+        <span class="left-strong">Code &amp; Dev:</span> Git, GitHub, Code
+        Review, Debugging, Optimization
+      </li>
+      <li><span class="left-strong">Databases:</span> MySQL, MongoDB</li>
+      <li>
+        <span class="left-strong">Platform:</span> Jupyter, Kaggle, PyCharm,
+        Visual Studio Code, Excel
+      </li>
+      <li>
+        <span class="left-strong">Soft Skills:</span> Strong Communication,
+        Problem-Solving, Teamwork, Leadership, Networking, Time Management,
+        Work Ethic, and Adaptive Learning Skills
+      </li>
+    </ul>
+
+    <div class="section-title">WORK EXPERIENCE</div>
+    <div class="entry">
+      <div class="row">
+        <div class="left-strong">
+          AI/ML Intern | Horizon17 Technology and Sustainability PVT LTD
+        </div>
+        <div class="right-meta">May 2025 - July 2025</div>
+      </div>
       <ul>
         <li>
-          <span class="left-strong"
-            >Vice President, Trigger Mind Club, Amity School of Engineering and
-            Technology (ASET), Noida</span
-          >
-          <span class="right-meta"> Jan 2025 - Jan 2026</span>
+          Developed NLP pipelines for processing unstructured compliance
+          documents using AI/ML techniques
         </li>
         <li>
-          <span class="left-strong"
-            >Student Placement Coordinator, Corporate Resource Center, ASET,
-            Noida</span
-          >
-          <span class="right-meta"> Mar 2024 - Present</span>
+          Evaluated and validated AI-generated outputs to ensure accuracy and
+          adherence to standards
+        </li>
+        <li>
+          Optimized data processing workflows, improving efficiency of
+          semantic analysis and reporting
+        </li>
+        <li>
+          Collaborated with cross-functional teams to design scalable
+          AI-driven compliance systems
         </li>
       </ul>
     </div>
-  </body>
+    <div class="entry">
+      <div class="row">
+        <div class="left-strong">Developer Intern | Salesforce</div>
+        <div class="right-meta">May 2024 - June 2024</div>
+      </div>
+      <ul>
+        <li>
+          Gained hands-on experience in Salesforce fundamentals, Apex, LWC,
+          APIs, and automation.
+        </li>
+        <li>
+          Earned Super Badges: Apex Specialist, Process Automation
+          Specialist, Developer Super Set.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-title">PROJECTS</div>
+    <div class="entry">
+      <p class="compact-line left-strong">Stocket - Stock Prediction Web App</p>
+      <ul>
+        <li>
+          Developed ML-based stock prediction models (GRU, LSTM, Random
+          Forest) achieving 82% accuracy
+        </li>
+        <li>
+          Built real-time data pipelines and optimized system latency by 30%
+        </li>
+        <li>
+          Designed modular architecture for scalable data processing and
+          visualization
+        </li>
+      </ul>
+    </div>
+    <div class="entry">
+      <p class="compact-line left-strong">LegalSnap - AI-Powered Legal Assistant</p>
+      <ul>
+        <li>
+          Built an Agentic RAG-based legal assistant integrating LLMs for
+          context-aware retrieval
+        </li>
+        <li>
+          Implemented semantic search using embeddings and optimized response
+          accuracy via re-ranking
+        </li>
+        <li>
+          Designed modular backend pipelines for scalable query processing and
+          knowledge retrieval
+        </li>
+        <li>
+          Evaluated and improved LLM outputs for correctness, latency, and
+          relevance
+        </li>
+      </ul>
+    </div>
+    <div class="entry">
+      <p class="compact-line left-strong">RAG based holistic cardiac support system</p>
+      <ul>
+        <li>
+          Design and implement hybrid RAG framework to answer and learn from
+          conventional user queries related to cardiac diagnosis, diet
+          recommendation and exercise regime.
+        </li>
+        <li>
+          Integrated persistent memory multilingual support with
+          metadata-tagged knowledge base.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-title">RESEARCH AND PUBLICATIONS</div>
+    <div class="entry">
+      <div class="row">
+        <div class="left-strong">
+          Quantum-Deliberation Framework for Modeling Opinion Dynamics
+        </div>
+        <div class="right-meta">2025</div>
+      </div>
+      <ul>
+        <li>
+          Developed a Quantum-Deliberation Framework with a Transformer-based
+          model, achieving 0.878 accuracy in predicting dynamic opinion
+          shifts.
+        </li>
+        <li>
+          Validated the framework on a self-sourced + LLM-augmented dataset
+          of 100+ participants across domains like policy, debates, and
+          social media.
+        </li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row">
+        <div class="left-strong">
+          Book chapter | Leveraging Generative Models for Strategic
+          Forecasting
+        </div>
+        <div class="right-meta">2025</div>
+      </div>
+      <ul>
+        <li>
+          Authored a Scopus-indexed book chapter on Real-Time Management with
+          Predictive Analytics.
+        </li>
+        <li>
+          Explored generative AI, digital twins, and deepfake detection with
+          applications in forecasting, fraud detection, and supply chain
+          management.
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-title">CERTIFICATIONS</div>
+    <div class="row">
+      <p class="compact-line left-strong">
+        Machine Learning Specialization by Stanford | DeepLearning.AI |
+        <a href="https://www.coursera.org/account/accomplishments/specialization/KQM1H2JVTD35?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=s12n"
+          target="_blank">Link</a>
+      </p>
+      <p class="compact-line right-meta">March 2025 - June 2025</p>
+    </div>
+    <div class="row">
+      <p class="compact-line left-strong">
+        Google Project Management | <a
+          href="https://www.coursera.org/account/accomplishments/professional-cert/6VM4SHXB6T5M?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof"
+          target="_blank">Link</a>
+      </p>
+      <p class="compact-line right-meta">May 2024 - June 2024</p>
+    </div>
+
+    <div class="section-title">POSITIONS OF RESPONSIBILITY</div>
+    <ul>
+      <li>
+        <div class="row">
+          <span class="left-strong">Vice President, Trigger Mind Club, Amity School of Engineering and
+            Technology (ASET), Noida</span>
+          <span class="right-meta"> Jan 2025 - Jan 2026</span>
+        </div>
+      </li>
+      <li>
+        <div class="row">
+          <span class="left-strong">Student Placement Coordinator, Corporate Resource Center, ASET,
+            Noida</span>
+          <span class="right-meta"> Mar 2024 - Present</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+
 </html>
