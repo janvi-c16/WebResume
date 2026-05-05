@@ -4,348 +4,524 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume</title>
+  <title>Janvi Chauhan - Resume</title>
   <style>
     body {
+      font-family: "Times New Roman", Times, serif;
       margin: 0;
-      background: #f2f2f2;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .resume {
-      width: min(900px, 96%);
-      margin: 8px auto;
-      background: #fff;
-      padding: 14px 24px 18px;
+      background-color: #f4f4f4;
       box-sizing: border-box;
     }
 
+    .resume-container {
+      max-width: 8.5in;
+      width: 95%;
+      min-height: 11in;
+      background: white;
+      padding: 0.5in;
+      margin: 10px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      padding-bottom: 5px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #333;
+      margin-top: 20px;
+      font-size: clamp(16px, 4vw, 20px);
+    }
+
+    /* Header Section */
     .header {
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: clamp(24px, 6vw, 28px);
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: clamp(12px, 3vw, 17px);
+      line-height: 1.4;
+    }
+
+    .contact-info span,
+    .contact-info a {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .contact-info svg {
+      flex-shrink: 0;
+      width: clamp(10px, 2.5vw, 13px);
+      height: clamp(10px, 2.5vw, 13px);
+    }
+
+    /* Education Section */
+    .education-entry-container {
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+
+    .education-entry {
+      margin-bottom: 10px;
+    }
+
+    .education-entry .title {
+      font-weight: bold;
+      font-size: clamp(14px, 3.5vw, 16px);
+    }
+
+    .education-entry>div:last-child {
+      font-style: italic;
+      margin-left: 5px;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .education-date {
+      font-style: italic;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    /* Projects / Experience entries */
+    .project {
+      margin-bottom: 15px;
+    }
+
+    .project-title {
+      font-weight: bold;
+      font-size: clamp(14px, 3.5vw, 16px);
+    }
+
+    .project ul {
+      margin: 5px 0 0 20px;
+      padding: 0;
+      list-style-type: circle;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .project li {
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+
+    /* Skills Section */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 5px;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .skills-list div {
+      line-height: 1.3;
+    }
+
+    /* Row layout for headers */
+    .project-header,
+    .education-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 16px;
+      gap: 10px;
     }
 
-    .name {
-      font-size: 25px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
+    .project-live-link {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+      font-size: clamp(12px, 3vw, 14px);
     }
 
-    .contact {
-      text-align: right;
-      font-size: 16px;
-      line-height: 1.35;
+    .project-live-link svg {
+      width: clamp(10px, 2.5vw, 13px);
+      height: clamp(10px, 2.5vw, 13px);
     }
 
-    .contact a {
-      color: inherit;
+    /* Certifications */
+    .cert-entry {
+      margin-bottom: 6px;
+      font-size: clamp(12px, 3vw, 14px);
     }
 
-    .section-title {
-      text-align: center;
-      font-weight: 700;
-      font-size: 20px;
-      margin: 8px 0 4px;
-      border-top: 4px solid #222;
-    }
-
-    .entry {
-      margin-top: 4px;
-    }
-
-    .row {
+    .cert-entry .cert-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .left-strong {
-      font-weight: 700;
+    .cert-entry .cert-title {
+      font-weight: bold;
     }
 
-    .right-meta {
-      white-space: nowrap;
+    .cert-entry a {
+      color: inherit;
+      font-weight: normal;
     }
 
-    .compact-line {
-      margin: 0;
-      line-height: 1.25;
-      font-size: 16px;
+    /* Override italic for title-only education entries (certs, positions) */
+    .no-italic-last>div:last-child {
+      font-style: normal;
     }
 
-    ul {
-      margin: 4px 0 0 28px;
-      padding: 0;
-      font-size: 16px;
-      line-height: 1.25;
+    /* Non-bold for certifications and positions */
+    .no-bold .title {
+      font-weight: normal;
     }
 
-    li {
-      margin: 2px 0;
+    /* Positions of Responsibility */
+    .positions-list {
+      margin-top: 5px;
+      font-size: clamp(12px, 3vw, 14px);
     }
 
-    @media (max-width: 720px) {
+    .position-entry {
+      margin-bottom: 8px;
+    }
 
-      .header,
-      .row {
+    @media screen and (max-width: 768px) {
+      .resume-container {
+        width: 98%;
+        padding: 0.3in;
+        margin: 5px auto;
+      }
+
+      .contact-info {
+        gap: 8px;
+      }
+
+      .contact-info>span:nth-child(even) {
+        display: none;
+      }
+
+      .project-header,
+      .education-header,
+      .cert-entry .cert-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 2px;
+        gap: 5px;
       }
 
-      .contact {
-        text-align: left;
+      .project ul {
+        margin-left: 15px;
       }
 
-      .right-meta {
-        white-space: normal;
+      h2 {
+        margin-top: 15px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .resume-container {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        max-width: none;
+      }
+
+      .contact-info>span:nth-child(even) {
+        display: flex;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="resume">
+  <div class="resume-container">
+
+    <!-- HEADER -->
     <div class="header">
-      <div class="name">JANVI CHAUHAN</div>
-      <div class="contact">
-        Email:
-        <a href="mailto:janvichauhan1608@gmail.com">janvichauhan1608@gmail.com</a><br />
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/janvi-chauhan-9297a92a1/"
-          target="_blank">https://www.linkedin.com/in/janvi-chauhan-9297a92a1/</a><br />
-        <a href="https://github.com/janvi-c16" target="_blank">GitHub</a> | Mobile: +91 9068255261
+      <h1>Janvi Chauhan</h1>
+      <div class="contact-info">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+          </svg>
+          +91 9068255261
+        </span>
+        <span>|</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+          </svg>
+          janvichauhan1608@gmail.com
+        </span>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/janvi-chauhan-9297a92a1/" target="_blank"
+          style="text-decoration: none; color: inherit;">
+          <span style="text-decoration: underline;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn.com
+          </span>
+        </a>
+        <span>|</span>
+        <a href="https://github.com/janvi-c16" target="_blank" style="text-decoration: none; color: inherit;">
+          <span style="text-decoration: underline;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+            GitHub.com
+          </span>
+        </a>
+        <span>|</span>
+        <a href="https://janvichauhan.vercel.app/" target="_blank" style="text-decoration: none; color: inherit;">
+          <span style="text-decoration: underline;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg>
+            Portfolio
+          </span>
+        </a>
       </div>
     </div>
 
-    <div class="section-title">EDUCATION</div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">
-          Bachelor of Technology (Computer Science Engineering)
+    <!-- EDUCATION -->
+    <h2 style="font-variant: small-caps">Education</h2>
+    <div class="education-entry-container">
+      <div class="education-entry">
+        <div class="education-header">
+          <div class="title">B.Tech in Computer Science and Engineering</div>
+          <div class="education-date">2022 – 2026</div>
         </div>
-        <div class="right-meta">Amity University, Noida</div>
-      </div>
-      <div class="row compact-line">
-        <p class="compact-line">Current CGPA: 8.48</p>
-        <p class="compact-line">2022-2026</p>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">Senior Secondary (CBSE)</div>
-        <div class="right-meta">Dewan Public School, Meerut</div>
-      </div>
-      <div class="row compact-line">
-        <p class="compact-line">Percentage: 90.25%</p>
-        <p class="compact-line">2020-2021</p>
-      </div>
-    </div>
-
-    <div class="section-title">SKILLS SUMMARY</div>
-    <ul>
-      <li><span class="left-strong">Languages:</span> C++, C, Python</li>
-      <li>
-        <span class="left-strong">AI/ML:</span> NLP, LLMs, RAG, Transformers,
-        Deep Learning
-      </li>
-      <li>
-        <span class="left-strong">Tools &amp; Frameworks:</span> PyTorch,
-        TensorFlow, Scikit-learn
-      </li>
-      <li>
-        <span class="left-strong">Code &amp; Dev:</span> Git, GitHub, Code
-        Review, Debugging, Optimization
-      </li>
-      <li><span class="left-strong">Databases:</span> MySQL, MongoDB</li>
-      <li>
-        <span class="left-strong">Platform:</span> Jupyter, Kaggle, PyCharm,
-        Visual Studio Code, Excel
-      </li>
-      <li>
-        <span class="left-strong">Soft Skills:</span> Strong Communication,
-        Problem-Solving, Teamwork, Leadership, Networking, Time Management,
-        Work Ethic, and Adaptive Learning Skills
-      </li>
-    </ul>
-
-    <div class="section-title">WORK EXPERIENCE</div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">
-          AI/ML Intern | Horizon17 Technology and Sustainability PVT LTD
+        <div style="font-style: italic; margin-left: 5px;">
+          Amity University, Noida — 8.48 CGPA
         </div>
-        <div class="right-meta">May 2025 - July 2025</div>
+      </div>
+      <div class="education-entry">
+        <div class="education-header">
+          <div class="title">Senior Secondary (CBSE)</div>
+          <div class="education-date">2020 – 2021</div>
+        </div>
+        <div style="font-style: italic; margin-left: 5px;">
+          Dewan Public School, Meerut — 90.25%
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS SUMMARY -->
+    <h2 style="font-variant: small-caps">Skills Summary</h2>
+    <div class="skills-list">
+      <div><strong>Languages:</strong> C++, C, Python, JavaScript, TypeScript</div>
+      <div><strong>AI / ML:</strong> NLP, LLMs, RAG, Transformers, Deep Learning</div>
+      <div><strong>Tools &amp; Frameworks:</strong> PyTorch, TensorFlow, Scikit-learn</div>
+      <div><strong>Frontend:</strong> HTML, CSS</div>
+      <div><strong>Code &amp; Dev:</strong> Git, GitHub, Code Review, Debugging, Optimization</div>
+      <div><strong>Databases:</strong> MySQL, MongoDB</div>
+      <div><strong>Platforms:</strong> Jupyter, Kaggle, PyCharm, Visual Studio Code, Excel</div>
+      <div><strong>Soft Skills:</strong> Strong Communication, Problem-Solving, Teamwork, Leadership, Networking, Time
+        Management, Work Ethic, and Adaptive Learning Skills</div>
+    </div>
+
+    <!-- WORK EXPERIENCE -->
+    <h2 style="font-variant: small-caps">Work Experience</h2>
+    <div class="project" style="margin-top: 5px;">
+      <div class="project-header">
+        <div class="project-title">AI/ML Intern, Horizon17 Technology and Sustainability PVT LTD</div>
+        <div class="education-date">May 2025 – July 2025</div>
       </div>
       <ul>
-        <li>
-          Developed NLP pipelines for processing unstructured compliance
-          documents using AI/ML techniques
-        </li>
-        <li>
-          Evaluated and validated AI-generated outputs to ensure accuracy and
-          adherence to standards
-        </li>
-        <li>
-          Optimized data processing workflows, improving efficiency of
-          semantic analysis and reporting
-        </li>
-        <li>
-          Collaborated with cross-functional teams to design scalable
-          AI-driven compliance systems
-        </li>
+        <li>Developed NLP pipelines for processing unstructured compliance documents using AI/ML techniques.</li>
+        <li>Evaluated and validated AI-generated outputs to ensure accuracy and adherence to standards.</li>
+        <li>Optimized data processing workflows, improving efficiency of semantic analysis and reporting.</li>
+        <li>Collaborated with cross-functional teams to design scalable AI-driven compliance systems.</li>
       </ul>
     </div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">Developer Intern | Salesforce</div>
-        <div class="right-meta">May 2024 - June 2024</div>
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Developer Intern, Salesforce</div>
+        <div class="education-date">May 2024 – June 2024</div>
       </div>
       <ul>
-        <li>
-          Gained hands-on experience in Salesforce fundamentals, Apex, LWC,
-          APIs, and automation.
-        </li>
-        <li>
-          Earned Super Badges: Apex Specialist, Process Automation
-          Specialist, Developer Super Set.
-        </li>
+        <li>Gained hands-on experience in Salesforce fundamentals, Apex, LWC, APIs, and automation.</li>
+        <li>Earned Super Badges: Apex Specialist, Process Automation Specialist, Developer Super Set.</li>
       </ul>
     </div>
 
-    <div class="section-title">PROJECTS</div>
-    <div class="entry">
-      <p class="compact-line left-strong">Stocket - Stock Prediction Web App</p>
-      <ul>
-        <li>
-          Developed ML-based stock prediction models (GRU, LSTM, Random
-          Forest) achieving 82% accuracy
-        </li>
-        <li>
-          Built real-time data pipelines and optimized system latency by 30%
-        </li>
-        <li>
-          Designed modular architecture for scalable data processing and
-          visualization
-        </li>
-      </ul>
-    </div>
-    <div class="entry">
-      <p class="compact-line left-strong">LegalSnap - AI-Powered Legal Assistant</p>
-      <ul>
-        <li>
-          Built an Agentic RAG-based legal assistant integrating LLMs for
-          context-aware retrieval
-        </li>
-        <li>
-          Implemented semantic search using embeddings and optimized response
-          accuracy via re-ranking
-        </li>
-        <li>
-          Designed modular backend pipelines for scalable query processing and
-          knowledge retrieval
-        </li>
-        <li>
-          Evaluated and improved LLM outputs for correctness, latency, and
-          relevance
-        </li>
-      </ul>
-    </div>
-    <div class="entry">
-      <p class="compact-line left-strong">RAG based holistic cardiac support system</p>
-      <ul>
-        <li>
-          Design and implement hybrid RAG framework to answer and learn from
-          conventional user queries related to cardiac diagnosis, diet
-          recommendation and exercise regime.
-        </li>
-        <li>
-          Integrated persistent memory multilingual support with
-          metadata-tagged knowledge base.
-        </li>
-      </ul>
-    </div>
-
-    <div class="section-title">RESEARCH AND PUBLICATIONS</div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">
-          Quantum-Deliberation Framework for Modeling Opinion Dynamics
+    <!-- PROJECTS -->
+    <h2 style="font-variant: small-caps">Projects</h2>
+    <div class="project" style="margin-top: 5px;">
+      <div class="project-header">
+        <div class="project-title">Stocket:
+          <span style="font-weight: lighter; font-style: italic;">Stock Prediction Web App</span>
         </div>
-        <div class="right-meta">2025</div>
+        <span class="project-live-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          </svg>
+          <a href="https://stocketai.vercel.app/" target="_blank">Live</a>
+        </span>
       </div>
       <ul>
-        <li>
-          Developed a Quantum-Deliberation Framework with a Transformer-based
-          model, achieving 0.878 accuracy in predicting dynamic opinion
-          shifts.
-        </li>
-        <li>
-          Validated the framework on a self-sourced + LLM-augmented dataset
-          of 100+ participants across domains like policy, debates, and
-          social media.
-        </li>
+        <li>Developed ML-based stock prediction models (GRU, LSTM, Random Forest) achieving 82% accuracy.</li>
+        <li>Built real-time data pipelines and optimized system latency by 30%.</li>
+        <li>Designed modular architecture for scalable data processing and visualization.</li>
       </ul>
     </div>
-    <div class="entry">
-      <div class="row">
-        <div class="left-strong">
-          Book chapter | Leveraging Generative Models for Strategic
-          Forecasting
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">LegalSnap:
+          <span style="font-weight: lighter; font-style: italic;">AI-Powered Legal Assistant</span>
         </div>
-        <div class="right-meta">2025</div>
+        <span class="project-live-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          </svg>
+          <a href="https://legalsnapai.vercel.app/" target="_blank">Live</a>
+        </span>
       </div>
       <ul>
-        <li>
-          Authored a Scopus-indexed book chapter on Real-Time Management with
-          Predictive Analytics.
-        </li>
-        <li>
-          Explored generative AI, digital twins, and deepfake detection with
-          applications in forecasting, fraud detection, and supply chain
-          management.
-        </li>
+        <li>Built an Agentic RAG-based legal assistant integrating LLMs for context-aware retrieval.</li>
+        <li>Implemented semantic search using embeddings and optimized response accuracy via re-ranking.</li>
+        <li>Designed modular backend pipelines for scalable query processing and knowledge retrieval.</li>
+        <li>Evaluated and improved LLM outputs for correctness, latency, and relevance.</li>
+      </ul>
+    </div>
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">BeatBound:
+          <span style="font-weight: lighter; font-style: italic;">RAG Based Holistic Cardiac Support System</span>
+        </div>
+        <span class="project-live-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+          </svg>
+          <a href="https://github.com/janvi-c16/beatbound" target="_blank">Live</a>
+        </span>
+      </div>
+      <ul>
+        <li>Designed and implemented a hybrid RAG framework to answer and learn from conventional user queries related
+          to cardiac diagnosis, diet recommendation, and exercise regime.</li>
+        <li>Integrated persistent memory multilingual support with metadata-tagged knowledge base.</li>
       </ul>
     </div>
 
-    <div class="section-title">CERTIFICATIONS</div>
-    <div class="row">
-      <p class="compact-line left-strong">
-        Machine Learning Specialization by Stanford | DeepLearning.AI |
-        <a href="https://www.coursera.org/account/accomplishments/specialization/KQM1H2JVTD35?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=s12n"
-          target="_blank">Link</a>
-      </p>
-      <p class="compact-line right-meta">March 2025 - June 2025</p>
+    <!-- RESEARCH AND PUBLICATIONS -->
+    <h2 style="font-variant: small-caps">Research and Publications</h2>
+    <div class="project" style="margin-top: 5px;">
+      <div class="project-header">
+        <div class="project-title">Quantum-Deliberation Framework for Modeling Opinion Dynamics</div>
+        <div class="education-date">2025</div>
+      </div>
+      <ul>
+        <li>Developed a Quantum-Deliberation Framework with a Transformer-based model, achieving 0.878 accuracy in
+          predicting dynamic opinion shifts.</li>
+        <li>Validated the framework on a self-sourced + LLM-augmented dataset of 100+ participants across domains like
+          policy, debates, and social media.</li>
+      </ul>
     </div>
-    <div class="row">
-      <p class="compact-line left-strong">
-        Google Project Management | <a
-          href="https://www.coursera.org/account/accomplishments/professional-cert/6VM4SHXB6T5M?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof"
-          target="_blank">Link</a>
-      </p>
-      <p class="compact-line right-meta">May 2024 - June 2024</p>
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Book Chapter: Leveraging Generative Models for Strategic Forecasting</div>
+        <div class="education-date">2025</div>
+      </div>
+      <ul>
+        <li>Authored a Scopus-indexed book chapter on Real-Time Management with Predictive Analytics.</li>
+        <li>Explored generative AI, digital twins, and deepfake detection with applications in forecasting, fraud
+          detection, and supply chain management.</li>
+      </ul>
     </div>
 
-    <div class="section-title">POSITIONS OF RESPONSIBILITY</div>
-    <ul>
-      <li>
-        <div class="row">
-          <span class="left-strong">Vice President, Trigger Mind Club, Amity School of Engineering and
-            Technology (ASET), Noida</span>
-          <span class="right-meta"> Jan 2025 - Jan 2026</span>
+    <!-- CERTIFICATIONS -->
+    <h2 style="font-variant: small-caps">Certifications</h2>
+    <div class="education-entry-container">
+      <div class="education-entry no-italic-last no-bold">
+        <div class="education-header">
+          <div class="title">
+            Machine Learning Specialization — Stanford / DeepLearning.AI
+            <a href="https://www.coursera.org/account/accomplishments/specialization/KQM1H2JVTD35" target="_blank"
+              style="font-weight: normal; font-style: normal; color: inherit; margin-left: 4px;">[Link]</a>
+          </div>
+          <div class="education-date">March 2025 – June 2025</div>
         </div>
-      </li>
-      <li>
-        <div class="row">
-          <span class="left-strong">Student Placement Coordinator, Corporate Resource Center, ASET,
-            Noida</span>
-          <span class="right-meta"> Mar 2024 - Present</span>
+      </div>
+      <div class="education-entry no-italic-last no-bold">
+        <div class="education-header">
+          <div class="title">
+            Google Project Management
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/6VM4SHXB6T5M" target="_blank"
+              style="font-weight: normal; font-style: normal; color: inherit; margin-left: 4px;">[Link]</a>
+          </div>
+          <div class="education-date">May 2024 – June 2024</div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
+
+    <!-- POSITIONS OF RESPONSIBILITY -->
+    <h2 style="font-variant: small-caps">Positions of Responsibility</h2>
+    <div class="education-entry-container">
+      <div class="education-entry no-italic-last no-bold">
+        <div class="education-header">
+          <div class="title">Vice President, Trigger Mind Club, ASET, Noida</div>
+          <div class="education-date">Jan 2025 – Jan 2026</div>
+        </div>
+      </div>
+      <div class="education-entry no-italic-last no-bold">
+        <div class="education-header">
+          <div class="title">Student Placement Coordinator, Corporate Resource Center, ASET, Noida</div>
+          <div class="education-date">Mar 2024 – Present</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </body>
 
